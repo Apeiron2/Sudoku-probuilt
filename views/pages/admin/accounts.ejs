@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Manage Accounts</title>
+</head>
+<body>
+    <%- include('../../partials/admin/admin_page'); %>
+    <main>
+        <div class="manage">
+            <div><form id="search-account">
+                <input type="text" placeholder="Search ...">
+            </form></div>
+            <div><button class="user">Create user account</button>
+                <button class="admin">Create admin account</button>
+                <button class="lastlogin">Lastest login</button></div>
+        </div>
+      <table class="accounts">
+        <thead>
+            <th class="id">ID</th>
+            <th class="fullname">Full name</th>
+            <th class="type">Type</th>
+            <th class="username">Username</th>
+            <th class="passwword">Password</th>
+            <th class="gmail">Gmail</th>
+            <th class="time-register">Time register</th>
+            <th class="last-login">Last login</th>
+            <th class="option" colspan="2">Option</th>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>⚙</td>
+                <td>🗑</td>
+            </tr> -->
+        </tbody>
+      </table>
+    </main>
+    <script src="/file/admin/accounts.js"></script>
+    <link rel="stylesheet" href="../../../public/admin/accounts.css">
+  </body>
+</body>
+</html>

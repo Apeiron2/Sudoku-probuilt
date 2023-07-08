@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/file/admin/edit_puzzles.css" />
+    <link rel="stylesheet" href="/file/admin/admin_page.css" />
+    <title>Admin Edit Puzzles</title>
+  </head>
+  <body>
+    <%- include('../../partials/admin/admin_page'); %>
+    <main>
+      <div class="table-puzzle">
+        <table id="puzzle"></table>
+      </div>
+
+      <!--  -->
+      <div class="feature">
+        <form id="open_puzzle">
+          <input
+            type="text"
+            placeholder="Open ID puzzle..."
+            name="id_puzzle"
+            id="id_puzzle"
+          />
+          <button>Open</button>
+        </form>
+        <div class="info-puzzle">
+          <p></p>
+          <p id="mess"></p>
+        </div>
+        <div>
+          <button onclick="edit()">EDIT PUZZLE</button>
+          <button onclick="del()">DELETE PUZZLE</button>
+        </div>
+      </div>
+    </main>
+    <script src="/file/admin/edit_puzzles.js"></script>
+    <link rel="stylesheet" href="/file/style_board.css" />
+  </body>
+</html>

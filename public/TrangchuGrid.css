@@ -1,0 +1,311 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+:root {
+  --main-color: #2890b9;
+  --red: red;
+  --light-color: #777;
+  --light-bg: #eee;
+  --black: #2c3e50;
+  --white: #fff;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+
+body {
+  max-width: 1200px;
+  font-family: "Poppins", sans-serif;
+  padding: 0px;
+  margin: 0 auto;
+  width: 100%;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  /* grid-template-rows: 100px 2000 70px; */
+  /* background-color: rgb(15, 143, 242); */
+  gap: 20px;
+}
+.container div {
+  /* background-color: aquamarine; */
+}
+.container .Header {
+  grid-column: 1 / span 2;
+}
+.container .footer {
+  grid-column: 1 / span 2;
+}
+
+/* Main */
+.main {
+  display: block;
+}
+.main-gridcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 100px auto 100px auto;
+  gap: 5px;
+}
+.main-gridcontainer div {
+  /* background-color: coral; */
+  padding: 20px;
+  text-align: center;
+}
+.main-gridcontainer .level {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  /* background-color:rgb(155, 159, 158); */
+}
+.main-gridcontainer .level ul {
+  padding: 10px;
+  margin: 2px;
+  /* background-color: bisque; */
+}
+.main-gridcontainer .level li {
+  list-style-type: none;
+  float: left;
+  padding: 10px;
+  margin-left: 2px;
+  border-radius: 7%;
+  /* background-color: aquamarine; */
+}
+.main-gridcontainer .level li a {
+  text-decoration: none;
+  color: black;
+}
+.main-gridcontainer .level li:hover {
+  background-color: aliceblue;
+}
+.main-gridcontainer .game {
+  padding: 0px;
+  grid-row: 2 / span 3;
+}
+.main-gridcontainer .item3 {
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.main-gridcontainer .icon {
+  padding: 10px;
+}
+.main-gridcontainer .icon .game-control {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  padding: 2px;
+  background-color: aliceblue;
+  border-radius: 0.5rem;
+}
+.main-gridcontainer .icon .game-control div {
+  padding: 10px;
+}
+
+.main-gridcontainer .function {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 540px;
+}
+.main-gridcontainer .function button {
+  color: white;
+  text-decoration: none;
+  background-color: rgb(6, 135, 255);
+  line-height: 40px;
+  width: 250px;
+  border: solid 1px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.main-gridcontainer .item7 {
+  grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Footer */
+.footer {
+  padding: 0px;
+  bottom: 0px;
+  background-color: var(--black);
+  width: 100%;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  color: rgb(33, 31, 31);
+}
+.footer-container div {
+  padding: 10px;
+  /* background-color: rgb(106, 102, 100); */
+  color: #fff;
+}
+.footer-container div a {
+  color: #fff;
+}
+.footer-container .fitem2 a {
+  display: block;
+}
+.footer-container .fitem3 a {
+  display: block;
+}
+.footer-container .fitem5 i {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+.footer-container .fitem6 {
+  grid-column: 1 / span 4;
+  font-size: 10px;
+  padding-top: 10px;
+}
+.footer-container .fitem7 a {
+  padding-right: 10px;
+}
+/* popup Quảng Cáo */
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.close-btn {
+  background-color: #ddd;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.DropDown {
+  display: none;
+}
+
+@media (max-width: 550px) {
+  .tonggle__button {
+    display: block;
+  }
+  #hiddenul {
+    display: none;
+  }
+  .Header .DropDown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: var(--black);
+    padding: 1rem 0.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.2s linear;
+  }
+
+  .Header .DropDown.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .Header .DropDown a {
+    display: block;
+    padding: 1rem;
+    color: var(--white);
+  }
+  .Header .DropDown a:hover {
+    background-color: var(--light-color);
+  }
+  .re450 {
+    display: none;
+  }
+  .ul1 #logo1 {
+    position: absolute;
+    text-align: center;
+    left: 45vw;
+    padding: 0;
+    height: 40px;
+    top: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .tonggle__button {
+    display: block;
+  }
+  #hiddenul {
+    display: none;
+  }
+  #hiddenul li a {
+    background-color: yellow;
+    gap: 2px;
+    display: block;
+  }
+
+  .Header .DropDown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: var(--black);
+    padding: 1rem 0.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.2s linear;
+  }
+
+  .Header .DropDown.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .Header .DropDown a {
+    display: block;
+    padding: 1rem;
+    color: var(--white);
+  }
+  .Header .DropDown a:hover {
+    background-color: var(--light-color);
+  }
+
+  .main-gridcontainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+    background-color: var(--black);
+  }
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-container div {
+    text-align: center;
+    display: flex;
+  }
+  .footer-container div a {
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+}

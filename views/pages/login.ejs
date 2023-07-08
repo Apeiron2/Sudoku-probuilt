@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/file/login/style/style.css" />
+    <title>Sudoku login</title>
+  </head>
+  <body>
+    <main>
+      <div class="logo">
+        <img src="/file/login/style/img/logo.png" alt="Logo Sudoku" />
+      </div>
+      <div class="log">
+        <input type="radio" id="nav-login" name="nav-form" /><label
+          for="nav-login"
+          >Đăng nhập</label
+        >
+        <input type="radio" id="nav-register" name="nav-form" /><label
+          for="nav-register"
+          >Đăng ký</label
+        >
+        <form id="login">
+          <label for="user-name">Tên đăng nhập:</label
+          ><input type="text" name="username" id="username" required />
+          <label for="passwword">Mật khẩu: </label
+          ><input type="password" name="password" id="password" required />
+          <input type="checkbox" id="robot" required /><label for="robot"
+            >Tôi không phải người máy</label
+          >
+          <button>Đăng nhập</button>
+        </form>
+        <form id="register">
+          <label for="full-name">Họ và tên:</label
+          ><input type="text" id="fullname" required />
+          <label for="email">Email:</label
+          ><input type="email" id="email" required />
+          <label for="username-register">Tên đăng nhập:</label
+          ><input type="text" id="username-register" required />
+          <label for="password-register">Mật khẩu:</label
+          ><input type="password" id="password-register" required />
+          <input type="checkbox" id="confirm" required /><label for="confirm"
+            ><i style="color: rgba(50, 114, 227, 255)"
+              >* Xác nhận các thông tin đều chính xác!</i
+            ></label
+          >
+          <button>Đăng ký</button>
+        </form>
+      </div>
+      <p class="mess"><i style="color: red"></i></p>
+      <script src="/file/login/login.js"></script>
+    </main>
+  </body>
+</html>

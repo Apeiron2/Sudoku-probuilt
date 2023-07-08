@@ -1,0 +1,89 @@
+:root {
+  --register-color: #aecbe9;
+  --login-color: #85aed6;
+}
+html {
+  background-image: url("./img/background.jpg");
+  background-size: cover;
+  background-color: rgb(155, 180, 201);
+}
+main {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 1200px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+}
+.logo img {
+  width: 70px;
+}
+.logo {
+  margin-left: 90px;
+  margin-bottom: 20px;
+}
+#login,
+#register {
+  box-sizing: border-box;
+  width: 250px;
+  padding: 10px;
+  border-radius: 0px 5px 5px 5px;
+}
+#login {
+  display: block;
+  background-color: var(--login-color);
+}
+#register {
+  display: none;
+  background-color: var(--register-color);
+}
+.log input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label {
+  display: inline-block;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 5px 5px 0px 0px;
+}
+#nav-register + label {
+  background-color: var(--register-color);
+  margin-left: -4px;
+}
+#nav-login + label {
+  background-color: var(--login-color);
+}
+
+#nav-register:checked ~ #register {
+  display: block;
+}
+#nav-register:checked ~ #login {
+  display: none;
+}
+.log input[type]:not([type="checkbox"]):not([type="radio"]) {
+  display: block;
+  width: 200px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+label + input {
+  margin: 10px;
+}
+#login button {
+  margin: 10px 10px 10px 130px;
+}
+#register button {
+  margin-left: 145px;
+}
+.log button {
+  display: inline-block;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  background-color: rgba(0, 114, 227, 255);
+  padding: 10px 10px;
+}

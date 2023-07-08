@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/TrangchuGrid.css">
+    <title>Gridlayout</title>
+
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header'); %>
+        <div class="main"> 
+            <div class="main-gridcontainer">
+                <div class="level">
+                    <ul>
+                        <p>Difficulty:</p>
+                    </ul>
+                    <ul>
+                        <li><a href="">Easy</a></li>
+                        <li><a href="">Medium</a></li>
+                        <li><a href="">Hard</a></li>
+                        <li><a href="">Expert</a></li>
+                        <li><a href="">Evil</a></li>
+                    </ul>
+                </div>
+                <div class="board game"><table id="puzzle"></table></div>
+                <script src="/file/boardgame.js"></script>
+                <link rel="stylesheet" href="../../public/style_board.css">
+                <div class="item3">
+                    <div>Time: <span id="timeDisplay">00:00:00 </span></div>
+                </div>
+
+                <!--  -->
+                <div class="function">
+                    <p></p>
+                    <p class="mess"></p>
+                    <button onclick="newgame()" id="startButton">New Game</button>
+                    <button onclick="checkgame()" id="stopButton">Check Puzzle</button>
+                </div>
+                <div class="item7"> 
+                    <div>
+                        <h2>Play Free Sudoku Now!</h2>
+                        <p>Sudoku is one of the most popular puzzle games of all time. The goal of Sudoku is to fill a 9×9 grid with numbers so that each row, column and 3×3 section contain all of the digits between 1 and 9. As a logic puzzle, Sudoku is also an excellent brain game. If you play Sudoku daily, you will soon start to see improvements in your concentration and overall brain power. Start a game now. Within no time Sudoku free puzzles will be your favorite online game.</p>
+                    </div>
+                    <div class="text">
+                        <h2>About Sudoku</h2>
+                        <p>The popular Japanese puzzle game Sudoku is based on the logical placement of numbers. An online game of logic, Sudoku doesn’t require any calculation nor special math skills; all that is needed are brains and concentration.</p>
+                    </div>
+                    <div class="text">
+                        <h2>How to play Sudoku</h2>
+                        <p>The goal of Sudoku is to fill in a 9×9 grid with digits so that each column, row, and 3×3 section contain the numbers between 1 to 9. At the beginning of the game, the 9×9 grid will have some of the squares filled in. Your job is to use logic to fill in the missing digits and complete the grid. Don’t forget, a move is incorrect if:</p>
+                    </div>
+                    <div class="text">
+                        <h2>Sudoku Tips</h2>
+                        <p>Sudoku is a fun puzzle game once you get the hang of it. At the same time, learning to play Sudoku can be a bit intimidating for beginners. So, if you are a complete beginner, here are a few Sudoku tips that you can use to improve your Sudoku skills.
+        
+                            Tip 1: Look for rows, columns of 3×3 sections that contain 5 or more numbers. Work through the remaining empty cells, trying the numbers that have not been used. In many cases, you will find numbers that can only be placed in one position considering the other numbers that are already in its row, column, and 3×3 grid.
+                            Tip 2: Break the grid up visually into 3 columns and 3 rows. Each large column will have 3, 3×3 grids and each row will have 3, 3×3 grids. Now, look for columns or grids that have 2 of the same number. Logically, there must be a 3rd copy of the same number in the only remaining 9-cell section. Look at each of the remaining 9 positions and see if you can find the location of the missing number.
+                            Now that you know a little more about Sudoku, play and enjoy this free online game.</p>
+                    </div>
+                    <div class="text">
+                        <h2>About Easybrain</h2>
+                        <p>Easybrain is a mobile games publisher with one of the most popular Sudoku apps on the App Store and Google Play, and from August 2018 is the proud owner of the Sudoku.com website.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="Sidebar">
+            <img width="250px" src="../../public/login/style/img/Screenshot 2023-06-25 175855.png" alt="">
+        </div>
+        <%- include('../partials/sc')%>
+        <%- include('../partials/footer')%>
+        
+<!-- Quảng cáo -->
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                  <!-- Nội dung quảng cáo -->
+                  <p>Đây là nội dung quảng cáo</p>
+                  <div><img src="../../public/login/style/img/Screenshot 2023-06-25 175855.png" alt=""></div>
+                  <button class="close-btn" onclick="closePopup()">Đóng</button>
+                </div>
+              </div>
+    
+    <script src="../../public/TrangchuGrid.js" ></script>
+    
+</body>
+</html>

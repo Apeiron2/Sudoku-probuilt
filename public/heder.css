@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+body {
+  /* margin: 0; */
+  max-width: 1200px;
+  font-family: "Poppins", sans-serif;
+  padding: 0px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+:root {
+  --main-color: #2890b9;
+  --red: red;
+  --light-color: #777;
+  --light-bg: #eee;
+  --black: #2c3e50;
+  --white: #fff;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 100px 2000 70px; */
+  /* background-color: rgb(15, 143, 242); */
+  gap: 20px;
+}
+.container .Header {
+  grid-column: 1 / span 2;
+}
+.container .footer {
+  grid-column: 1 / span 2;
+}
+
+/* Header */
+.Header {
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  max-width: 1200px;
+  font-family: "Poppins", sans-serif;
+  padding: 0px;
+  margin: 0 auto;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #f5f2f2;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 10px;
+  margin: 0px;
+}
+.ul1 {
+  position: sticky;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+.nav div a i {
+  font-size: 50px;
+  display: none;
+}
+.nav a {
+  text-decoration: none;
+  font-size: 20px;
+}
+.nav .ul1 li {
+  /* background-color: yellowgreen; */
+  list-style-type: none;
+  float: left;
+  padding-right: 20px;
+}
+#logo1 {
+  padding: 0px;
+  height: 50px;
+}
+
+.submenu {
+  background-color: rgb(190, 186, 186);
+  position: absolute;
+  visibility: hidden;
+  transition: 0.2 ease-in-out;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  z-index: 1000;
+  /* border-radius: 0.5rem; */
+}
+.submenu a:hover {
+  background-color: var(--white);
+}
+.hover1:hover #sub1 {
+  visibility: visible;
+}
+.hover2:hover #sub2 {
+  visibility: visible;
+}
+
+.tonggle__button {
+  position: sticky;
+  right: 10px;
+  font-size: 2rem;
+  display: none;
+}
+
+.DropDown {
+  display: none;
+}
+.DropDown a {
+  text-decoration: none;
+}
+
+@media (max-width: 550px) {
+  .tonggle__button {
+    display: block;
+  }
+  #hiddenul {
+    display: none;
+  }
+  .Header .DropDown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: var(--black);
+    padding: 1rem 0.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.2s linear;
+  }
+
+  .Header .DropDown.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .Header .DropDown a {
+    display: block;
+    padding: 1rem;
+    color: var(--white);
+  }
+  .Header .DropDown a:hover {
+    background-color: var(--light-color);
+  }
+  .re450 {
+    display: none;
+  }
+  .ul1 #logo1 {
+    position: relative;
+    text-align: center;
+    left: 35vw;
+    padding: 0;
+    height: 40px;
+    top: 0;
+  }
+  ul .ul1 {
+    padding: 16px;
+    margin: 20px;
+  }
+}
+#hiddenul {
+  margin: 0px;
+}
+
+@media (max-width: 800px) {
+  .tonggle__button {
+    display: block;
+  }
+  #hiddenul {
+    display: none;
+  }
+  #hiddenul li a {
+    background-color: yellow;
+    gap: 2px;
+    display: block;
+  }
+
+  .Header .DropDown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: var(--black);
+    padding: 1rem 0.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.2s linear;
+  }
+
+  .Header .DropDown.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .Header .DropDown a {
+    display: block;
+    padding: 1rem;
+    color: var(--white);
+  }
+  .Header .DropDown a:hover {
+    background-color: var(--light-color);
+  }
+}
+
+@media (max-width: 1200px) {
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Add Puzzles</title>
+</head>
+<body>
+    <%- include('../../partials/admin/admin_page'); %>
+    <main>
+      <div class="table-puzzle">
+        <table id="puzzle"></table>
+      </div>      
+      <div class="feature">
+        <div class="info-puzzle">
+          <p></p>
+          <p id="mess"></p>
+        </div>
+        <div>
+          <button onclick="reset()">RESET PUZZLE</button>
+          <button onclick="add()">ADD PUZZLE</button>
+        </div>
+      </div>
+    </main>
+    <script src="/file/admin/add_puzzles.js"></script>
+    <link rel="stylesheet" href="/file/style_board.css" />
+    <link rel="stylesheet" href="../../../public/admin/add_puzzles.css">
+  </body>
+</body>
+</html>

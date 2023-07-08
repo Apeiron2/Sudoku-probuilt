@@ -1,0 +1,60 @@
+<!-- Load trang -->
+<div class="page-loader">
+  <div class="loader"></div>
+</div>
+<script>
+  window.addEventListener("load", function () {
+    setTimeout(() => {
+      document.querySelector(".page-loader").style.display = "none";
+    }, 1000);
+  });
+</script>
+
+<!-- Aside & Header -->
+<link
+  rel="stylesheet"
+  href="/file/fontawesome-free-6.4.0-web/css/all.min.css"
+/>
+<link rel="stylesheet" href="/file/admin/admin_page.css" />
+<input type="checkbox" id="nav-btn" />
+<aside>
+  <div class="navbar-brand">
+    <img src="/file/login/style/img/logo.png" alt="logo" />
+    <h1><i>&nbsp;&nbsp;ADMIN</i></h1>
+    <hr />
+  </div>
+  <ul>
+    <div class="nav-item dashboard">
+      <a href="../admin/dashboard">Dashboard</a>
+    </div>
+    <li class="nav-item accounts"><a href="../admin/accounts">Accounts</a></li>
+    <li class="nav-item ranking"><a href="../admin/ranking">Ranking</a></li>
+    <li class="nav-item puzzles">
+      <a href="#">Puzzles</a>
+      <ul>
+        <li>
+          <a href="../admin/add_puzzles">Add a new puzzle</a>
+        </li>
+        <li>
+          <a href="../admin/edit_puzzles">Edit a puzzle</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item activities"><a href="#">Activities</a></li>
+  </ul>
+</aside>
+<header>
+  <div class="left">
+    <label for="nav-btn"><i class="fa-solid fa-bars"></i></label>
+    <input type="text" placeholder="Search" />
+  </div>
+  <div class="right">
+    <div class="noti"><i class="fa-regular fa-bell"></i></div>
+    <div class="admin-info">
+      <div class="admin-avatar"></div>
+      <div class="admin-name">
+        <p id="user-name" title="<%=fullname%>"><%=fullname%></p>
+      </div>
+    </div>
+  </div>
+</header>

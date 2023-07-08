@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/file/admin/dashboard.css" />
+    <title>Admin DashBoard</title>
+  </head>
+  <body>
+    <%- include('../../partials/admin/admin_page'); %>
+    <main>
+      <div class="web">
+        <div class="view">
+          <p class="title">Views</p>
+          <p class="value">1</p>
+        </div>
+        <div class="accounts">
+          <p class="title">Accounts</p>
+          <p class="value"><%= accounts %></p>
+        </div>
+        <div class="puzzles">
+          <p class="title">Puzzles</p>
+          <p class="value"><%= puzzles %></p>
+        </div>
+        <div class="rate">
+          <p class="title">Rate</p>
+          <p class="value"><%=rate%></p>
+        </div>
+      </div>
+      <div class="comments">
+        <div class="comment">
+          <div class="info-comment">
+            <p class="fullname"><%= fullname %></p>
+            <p class="time">24 giờ trước</p>
+            <p class="gmail">meorung922003@gmail.com</p>
+            <p class="del-comment">🗑</p>
+          </div>
+          <hr />
+          <div class="rate">
+            <div class="star">o</div>
+            <div class="star">o</div>
+            <div class="star">o</div>
+            <div class="star">o</div>
+            <div class="star">o</div>
+          </div>
+          <p class="content">Game rất hay! Chơi rèn luyện tư duy rất tốt!</p>
+        </div>
+      </div>
+      <script src="../../../public/admin/dashboard.js"></script>
+    </main>
+  </body>
+</html>

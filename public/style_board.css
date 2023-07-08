@@ -1,0 +1,61 @@
+#puzzle {
+  display: block;
+  width: 540px;
+  height: 540px;
+  margin: 20px;
+}
+#puzzle input {
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  border-spacing: 0;
+  border: 1px solid white;
+  text-align: center;
+  font-size: 2rem;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:hover {
+  background-color: rgb(181, 229, 255) !important;
+}
+.row1,
+.row4,
+.row7 {
+  box-sizing: border-box;
+  border-top: 2px solid black !important;
+}
+.row9 {
+  box-sizing: border-box;
+  border-bottom: 2px solid black !important;
+}
+.col1 {
+  box-sizing: border-box;
+  border-left: 2px solid black !important;
+}
+.col3,
+.col6,
+.col9 {
+  box-sizing: border-box;
+  border-right: 2px solid black !important;
+}
+.row2,
+.row5,
+.row8 {
+  box-sizing: border-box;
+  border-top: 1px solid rgb(99, 99, 99) !important;
+  border-bottom: 1px solid rgb(99, 99, 99) !important;
+}
+.col2,
+.col5,
+.col8 {
+  box-sizing: border-box;
+  border-left: 1px solid rgb(99, 99, 99) !important;
+  border-right: 1px solid rgb(99, 99, 99) !important;
+}
+
+.empty {
+  background-color: rgb(245, 245, 245) !important;
+}
