@@ -13,7 +13,11 @@
       <div class="web">
         <div class="view">
           <p class="title">Views</p>
-          <p class="value">1</p>
+          <% if (view) { %>
+          <p class="value"><%=view%></p>
+          <% } else { %>
+          <p class="value">0</p>
+          <% } %>
         </div>
         <div class="accounts">
           <p class="title">Accounts</p>
@@ -28,25 +32,8 @@
           <p class="value"><%=rate%></p>
         </div>
       </div>
-      <div class="comments">
-        <div class="comment">
-          <div class="info-comment">
-            <p class="fullname"><%= fullname %></p>
-            <p class="time">24 giờ trước</p>
-            <p class="gmail">meorung922003@gmail.com</p>
-            <p class="del-comment">🗑</p>
-          </div>
-          <hr />
-          <div class="rate">
-            <div class="star">o</div>
-            <div class="star">o</div>
-            <div class="star">o</div>
-            <div class="star">o</div>
-            <div class="star">o</div>
-          </div>
-          <p class="content">Game rất hay! Chơi rèn luyện tư duy rất tốt!</p>
-        </div>
-      </div>
+      <div id="mess"></div>
+      <div class="comments"></div>
       <script src="../../../public/admin/dashboard.js"></script>
     </main>
   </body>

@@ -23,7 +23,7 @@ document.getElementById("login").addEventListener("submit", function (event) {
         case "admin":
           return (window.location.href = "/admin/dashboard");
         case "user":
-          return (window.location.href = "/user");
+          return (window.location.href = "/");
         default:
           return send(res);
       }

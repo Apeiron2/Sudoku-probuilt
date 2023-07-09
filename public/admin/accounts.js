@@ -3,6 +3,7 @@ window.addEventListener("load", function () {
 });
 function accounts(data) {
   const accounts = document.querySelector(".accounts tbody");
+  accounts.innerHTML = "";
   data.forEach((element) => {
     accounts.innerHTML +=
       "<tr>" +
@@ -31,18 +32,14 @@ function accounts(data) {
       element.login +
       "</td>" +
       '<td title="edit">⚙</td>' +
-      '<td title="delete">🗑</td>' +
+      '<td title="delete" onclick="del(' +
+      element.id +
+      ')">🗑</td>' +
       "</tr>";
   });
 }
 function get_accounts() {
-  fetch(`http://localhost:5000/get_accounts`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: null,
-  })
+  fetch(`http://localhost:5000/get_accounts`)
     .then((res) => {
       return res.json();
     })
@@ -50,6 +47,22 @@ function get_accounts() {
       accounts(res);
     })
     .catch((err) => {
-      send("Server không phản hồi!");
+      alert("Server không phản hồi!");
+    });
+}
+function create() {
+  document.querySelector(".create_account").style.display = "block";
+}
+function cancer() {
+  document.querySelector(".create_account").style.display = "none";
+}
+function del(id) {
+  fetch(`http://localhost:5000/admin/del_account/${id}`)
+    .then((res) => {
+      alert("Xóa thành công!");
+      get_accounts();
+    })
+    .catch((err) => {
+      alert(err.message);
     });
 }

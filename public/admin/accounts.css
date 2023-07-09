@@ -55,12 +55,7 @@ main {
 .manage button:nth-child(1) {
   background-color: #007bff;
 }
-.manage button:nth-child(2) {
-  background-color: #00d9bf;
-}
-.manage button:nth-child(3) {
-  background-color: #ad59ff;
-}
+
 .manage button:hover {
   transform: scale(1.1);
 }
@@ -111,5 +106,54 @@ table.accounts tbody td {
 table.accounts tbody td:nth-child(9),
 table.accounts tbody td:nth-child(10) {
   text-align: center;
+  cursor: pointer;
+}
+.create_account {
+  display: none;
+  background-color: aliceblue;
+  padding: 20px;
+  border-radius: 10px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  box-shadow: -5px -5px 10px 5px rgba(0, 0, 0, 0.1);
+}
+.create_account #create {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  position: relative;
+}
+.create_account #create h1 {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.create_account #create input {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 40px;
+}
+.create_account #create select {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 30px;
+}
+.create_account #create button {
+  border: transparent;
+  background-color: rgb(125, 250, 125);
+  border-radius: 5px;
+  height: 30px;
+  cursor: pointer;
+}
+.create_account #create button:nth-of-type(1) {
+  border: transparent;
+  background-color: rgb(250, 125, 125);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
   cursor: pointer;
 }

@@ -81,7 +81,7 @@ main {
 .info-comment > p {
   display: inline-block;
 }
-.info-comment .gmail {
+.info-comment .email {
   font-size: 0.8rem;
   display: block;
   border-radius: 2px;
@@ -90,6 +90,7 @@ main {
   color: gray;
   font-style: italic;
   padding-left: 10px;
+  font-size: 0.8rem;
 }
 .info-comment .del-comment {
   position: absolute;
@@ -97,11 +98,16 @@ main {
   left: 95%;
   font-size: 1.5rem;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 .info-comment hr {
   color: #85aed6;
 }
-.comment .rate {
-  display: flex;
-  gap: 10px;
+.comment .rate::after {
+  content: " sao";
+}
+#mess {
+  display: block;
+  height: 20px;
 }
