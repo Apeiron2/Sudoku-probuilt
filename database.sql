@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `sudoku` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `sudoku`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: sudoku
@@ -33,8 +31,10 @@ CREATE TABLE `accounts` (
   `email` varchar(90) NOT NULL,
   `time` varchar(45) NOT NULL,
   `login` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username_UNIQUE` (`username`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `accounts` (
 
 LOCK TABLES `accounts` WRITE;
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-INSERT INTO `accounts` VALUES (1,'Vũ Đức Tài','user','apeiron','a','apeironisme@gmail.com','2023-07-08 01:46:35','2023-07-08 11:38:07'),(2,'Vũ Đức Tài','admin','admin','a','meorung922003@gmail.com','2023-07-08 01:47:37','2023-07-08 11:42:44');
+INSERT INTO `accounts` VALUES (1,'Vũ Đức Tài','user','apeiron','a','apeironisme@gmail.com','2023-07-08 01:46:35','2023-07-10 16:18:46'),(2,'Vũ Đức Tài','admin','admin','a','meorung922003@gmail.com','2023-07-08 01:47:37','2023-07-10 16:16:23'),(17,'Mai Anh Việt','admin','Vietdz','a','viet.ma212350@sis.hust.edu.vn','2023-07-09 19:30:54','2023-07-09 20:07:25'),(19,'Nguyễn Văn Cường','admin','cuongdz','a','Cuongdz@gmail.com','2023-07-09 19:40:53',NULL),(35,'Nguyễn Bích Hằng','user','nbh69','a','nbh2003@gmail.com','2023-07-09 20:14:53','2023-07-09 20:15:03');
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,14 +55,13 @@ DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comments` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
   `content` varchar(255) NOT NULL,
   `rate` varchar(45) NOT NULL,
   `time` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +70,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+INSERT INTO `comments` VALUES (2,'apeiron','Mãi mới thắng 1 màn','5','2023-07-09 15:15:08'),(17,'apeiron','Game hay','5','2023-07-09 19:10:12'),(19,'apeiron','Anh Cường đz on top!','5','2023-07-10 09:23:45'),(20,'apeiron','có cài đầu ****','5','2023-07-10 13:48:47'),(21,'apeiron','Test cmt','5','2023-07-10 15:17:16');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-08 12:38:42
+-- Dump completed on 2023-07-10 17:28:36
