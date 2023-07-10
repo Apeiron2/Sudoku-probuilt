@@ -2,6 +2,7 @@
 
 window.addEventListener("load", function () {
   checkCookie();
+  get_comments();
 });
 
 // Lưu số lần truy cập trang; tgian tồn tại cookie là 1 phút
@@ -91,3 +92,45 @@ function padNumber(number) {
 // Gán các sự kiện cho nút bắt đầu và nút dừng
 document.getElementById("startButton").addEventListener("click", startTimer);
 document.getElementById("stopButton").addEventListener("click", stopTimer);
+
+//Comment
+function get_comments() {
+  fetch("http://localhost:5000/get_comments")
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      showcomment(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+function showcomment(comments) {
+  const comment = document.querySelector(".comments");
+  comment.innerHTML = "";
+  comments.forEach((element) => {
+    {
+      comment.innerHTML +=
+        '<div class="comment">' +
+        '<div class="info-comment">' +
+        '<p class="fullname">' +
+        element.fullname +
+        "</p>" +
+        '<p class="time">' +
+        element.time +
+        "</p>" +
+        '<p class="email">' +
+        element.email +
+        "</p>" +
+        "</div>" +
+        '<p class="rate">' +
+        element.rate +
+        "</p>" +
+        '<p class="content">' +
+        element.content +
+        "</p>" +
+        "</div>";
+    }
+  });
+}

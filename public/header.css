@@ -112,6 +112,9 @@ body {
 .hover2:hover #sub2 {
   visibility: visible;
 }
+.hover3:hover #sub3 {
+  visibility: visible;
+}
 
 .tonggle__button {
   position: sticky;
@@ -218,4 +221,17 @@ body {
 }
 
 @media (max-width: 1200px) {
+}
+.player {
+  position: relative;
+  cursor: pointer;
+}
+#logout {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+}
+.player:hover ul {
+  visibility: visible;
 }

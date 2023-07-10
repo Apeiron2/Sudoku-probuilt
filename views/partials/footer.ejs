@@ -35,3 +35,159 @@
     </div>
   </div>
 </div>
+
+<style>
+  /* CSS cho modal */
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .form-container {
+    background-color: cornflowerblue;
+    /* 45 deg, rgb(65,88,208) 0%, rgb(200,80,192) 50%, rgb(255,204,112) 100%); */
+    max-width: 400px;
+    margin: 0 auto;
+    /* padding-top: 10px; */
+  }
+  .form-group {
+    margin: 20px;
+  }
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  .form-group input[type="text"],
+  .form-group textarea {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .form-group textarea {
+    height: 100px;
+  }
+  .form-group button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  .form-group button:hover {
+    background-color: #45a049;
+  }
+  .form-group {
+    padding-left: 20px;
+  }
+  .cho {
+    display: block;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    /* background-color: blueviolet; */
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .close {
+    color: #f12121;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
+<h2>Form ý kiến phản hồi khách hàng</h2>
+
+<a href="#" id="openModal"
+  >Bấm để mở form <i class="fa-solid fa-star"></i
+  ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+  ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+</a>
+
+<div id="feedbackModal" class="modal">
+  <div class="form-container">
+    <span class="close">&times;</span>
+    <form id="feedbackForm">
+      <div class="form-group">
+        <p class="cho">Họ và tên:</p>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Ý kiến:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit">Gửi ý kiến</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  var openModalButton = document.getElementById("openModal");
+  var modal = document.getElementById("feedbackModal");
+  var closeModalButton = document.getElementsByClassName("close")[0];
+
+  openModalButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    modal.style.display = "block";
+  });
+
+  closeModalButton.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  document
+    .getElementById("feedbackForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      // Xử lý dữ liệu và hiển thị thông báo hoặc chuyển hướng
+      alert("Cảm ơn bạn đã gửi ý kiến phản hồi!");
+      modal.style.display = "none";
+    });
+</script>

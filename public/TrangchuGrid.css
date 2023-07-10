@@ -52,10 +52,10 @@ body {
   grid-template-rows: auto 100px auto 100px auto;
   gap: 5px;
 }
-.main-gridcontainer div {
+.main-gridcontainer .text {
   /* background-color: coral; */
-  padding: 20px;
   text-align: center;
+  padding: 20px;
 }
 .main-gridcontainer .level {
   padding: 0px;
@@ -352,4 +352,64 @@ form.usercmt button {
 }
 form.usercmt button:hover {
   box-shadow: 0px 0px 5px gray;
+}
+.comments {
+  display: flex;
+  width: 90%;
+  height: 500px;
+  overflow: scroll;
+  border: 1px solid black;
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 20px 50px;
+  gap: 10px;
+  margin: 20px auto;
+}
+.comment {
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  border: 2px solid #85aed6;
+  position: relative;
+  height: fit-content;
+  padding-left: 10px;
+}
+.comment > p {
+  font-size: 0.8rem;
+}
+.info-comment > p {
+  display: inline-block;
+  text-align: left;
+}
+.info-comment .fullname {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.info-comment .email {
+  font-size: 0.8rem;
+  display: block;
+  border-radius: 2px;
+  margin: 5px 5px 5px 0px;
+  translate: 0 -5px;
+}
+.info-comment .time {
+  color: gray;
+  font-style: italic;
+  padding-left: 10px;
+  font-size: 0.8rem;
+}
+p.content {
+  padding: 10px;
+  margin-right: 10px;
+  border-top: 1px solid gray;
+  font-size: 0.9rem;
+  max-height: 100px;
+}
+.comment .rate {
+  translate: 5px -5px;
+  font-size: 1rem;
+}
+.comment .rate::after {
+  content: " sao";
+  font-size: 1rem;
 }

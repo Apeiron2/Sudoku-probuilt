@@ -1,3 +1,4 @@
+const fs = require("fs");
 const cors = require("cors");
 const express = require("express");
 const mysql = require("mysql2");
@@ -44,7 +45,14 @@ app.use(
   })
 );
 
+const filePath = "./badwords.txt";
+var badwords;
+fs.readFile(filePath, "utf8", (err, data) => {
+  badwords = data.split("\n");
+});
+
 app.get("/login", (req, res) => {
+  req.session.destroy();
   res.render(`pages/login.ejs`);
 });
 // Đăng nhập
@@ -70,11 +78,7 @@ app.post("/login", (req, res) => {
     }
   }).catch((err) => res.json(err));
 });
-// Đăng xuất
-app.get("/logout", (req, res) => {
-  req.session.destroy();
-  res.json("Đăng xuất thành công!");
-});
+
 //Tạo path
 app.get("/admin", (req, res) => {
   if (req.session.type != "admin") {
@@ -87,11 +91,15 @@ app.get("/admin", (req, res) => {
 app.get("/", (req, res) => {
   if (req.session.type != "user") {
     res.redirect(`../login`);
-  } else
+  } else {
+    let visitCount = req.cookies.visitCount || 0;
+    visitCount++;
+    res.cookie("visitCount", visitCount);
     res.render(`pages/TrangChuGrid.ejs`, {
       fullname: req.session.fullname,
       email: req.session.email,
     });
+  }
 });
 app.get("/admin/dashboard", (req, res) => {
   if (req.session.type != "admin") {
@@ -116,6 +124,7 @@ app.get("/admin/dashboard", (req, res) => {
         accounts: accounts,
         puzzles: puzzles,
         rate: rate,
+        visitCount: req.cookies.visitCount,
       });
     }, 1000);
   }
@@ -149,10 +158,16 @@ app.get("/admin/add_puzzles", (req, res) => {
 });
 
 app.get("/tutorial", (req, res) => {
-  res.render(`pages/tutorial.ejs`);
+  res.render(`pages/tutorial.ejs`, {
+    fullname: req.session.fullname,
+    email: req.session.email,
+  });
 });
 app.get("/about-us", (req, res) => {
-  res.render(`pages/GioiThieu.ejs`);
+  res.render(`pages/GioiThieu.ejs`, {
+    fullname: req.session.fullname,
+    email: req.session.email,
+  });
 });
 
 // Đăng ký tài khoản
@@ -198,13 +213,6 @@ app.get("/admin/del_account/:id", (req, res) => {
     });
   }
 });
-// Đếm view
-app.get("/", (req, res) => {
-  let visitCount = req.cookies.visitCount || 0;
-  visitCount++;
-  res.cookie("visitCount", visitCount);
-});
-
 // Submit comment
 app.post("/", (req, res) => {
   if (req.session.username == undefined) {
@@ -213,7 +221,8 @@ app.post("/", (req, res) => {
     const rate = req.body.rate;
     const content = req.body.content;
     const username = req.session.username;
-    const sql = `insert into comments(username,content,rate,time) values ('${username}','${content}','${rate}',now())`;
+    const comment = filterComment(content, badwords);
+    const sql = `insert into comments(username,content,rate,time) values ('${username}','${comment}','${rate}',now())`;
     const Query = query(sql);
     res.render(`pages/TrangChuGrid.ejs`, {
       fullname: req.session.fullname,
@@ -221,7 +230,20 @@ app.post("/", (req, res) => {
     });
   }
 });
+function filterComment(comment, badwords) {
+  const words = comment.split(" ");
 
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i].toLowerCase();
+    if (badwords.includes(word)) {
+      words[i] = "*".repeat(word.length);
+    }
+  }
+
+  const filteredComment = words.join(" ");
+
+  return filteredComment;
+}
 // Nhận ds tài khoản
 app.get("/get_accounts", (req, res) => {
   var sql = `select * from accounts;`;
@@ -232,7 +254,7 @@ app.get("/get_accounts", (req, res) => {
 });
 // Nhận ds comment
 app.get("/get_comments", (req, res) => {
-  var sql = `select comments.id,fullname,comments.time,accounts.email,rate,content from comments join accounts ON comments.username=accounts.username;`;
+  var sql = `select comments.id,fullname,comments.time,accounts.email,rate,content from comments join accounts ON comments.username=accounts.username order by id desc;`;
   const Query = query(sql);
   Query.then((results) => {
     res.json(results);
@@ -262,20 +284,6 @@ app.post("/startgame", (req, res) => {
   }).catch((err) => {
     res.json(err);
   });
-});
-// Thêm câu đố
-app.post("/export_puzzle", (req, res) => {
-  const data = req.body.puzzle;
-  const sql = `insert into puzzles (puzzle) values ('${data}');`;
-  const results = query(sql);
-  results
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => res.json(err));
-});
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
 });
 // Chỉnh sửa câu đố
 app.post("/edit_puzzle", (req, res) => {
@@ -314,4 +322,8 @@ app.post("/add_puzzle", (req, res) => {
       res.json(data);
     })
     .catch((err) => res.json(err));
+});
+
+app.listen(5000, () => {
+  console.log("Server đang chạy trên localhost:" + port);
 });
